@@ -1,0 +1,24 @@
+usuario:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tienda:
+    resource: "@TiendaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ciudad:
+    resource: "@CiudadBundle/Resources/config/routing.yml"
+    prefix:   /
+
+oferta:
+    resource: "@OfertaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pagina_estatica:
+    path:     /sitio/{pagina}
+    defaults: { _controller: OfertaBundle:Sitio:estatica }
+
+#añadido para redirigir en caso de que se añada una "/" al final
+_pagin_estatica:
+    path:     /sitio/{pagina}/
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: pagina_estatica, permanent: true }
