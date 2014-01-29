@@ -106,15 +106,11 @@ class Oferta
     private $revisada;
 
     /**
-     * @var string
-     *
      * @ORM\ManyToOne(targetEntity="Cupon\CiudadBundle\Entity\Ciudad")
      */
     private $ciudad;
 
     /**
-     * @var string
-     *
      * @ORM\ManyToOne(targetEntity="Cupon\TiendaBundle\Entity\Tienda")
      */
     private $tienda;
@@ -422,7 +418,7 @@ class Oferta
     /**
      * Get ciudad
      *
-     * @return string 
+     * @return \Cupon\CiudadBundle\Entity\Ciudad 
      */
     public function getCiudad()
     {
@@ -445,7 +441,7 @@ class Oferta
     /**
      * Get tienda
      *
-     * @return string 
+     * @return \Cupon\TiendaBundle\Entity\Tienda
      */
     public function getTienda()
     {
