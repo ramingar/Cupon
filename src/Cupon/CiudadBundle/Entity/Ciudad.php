@@ -2,6 +2,7 @@
 namespace Cupon\CiudadBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Cupon\OfertaBundle\Util\Util;
 
 // La anotación @ORM\Table(name="Ciudad") no hace nada ya que Doctrine2 va a coger el
 // nombre de la clase -que es Ciudad-. Simplemente, lo he añadido para ver cómo podría
@@ -33,6 +34,7 @@ class Ciudad
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+        $this->slug = Util::getSlug($nombre);
 
         return $this;
     }
@@ -40,13 +42,6 @@ class Ciudad
     public function getNombre()
     {
         return $this->nombre;
-    }
-
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
     }
 
     public function getSlug()
