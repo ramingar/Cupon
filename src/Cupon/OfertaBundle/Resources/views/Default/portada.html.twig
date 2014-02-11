@@ -1,0 +1,73 @@
+{% extends '::frontend.html.twig' %}
+
+{% block title %}
+Cupon, cada día ofertas increíbles en tu ciudad con descuentos de hasta el 90%
+{% endblock %}
+
+{% block id 'portada' %}
+
+{% block article %}
+	<section class="descripcion">
+		<h1><a href="#">{{ oferta[0].nombre }}</a></h1>
+		{{ oferta[0].descripcion }}
+		<a href="#" class="boton">Comprar</a>
+	</section>
+
+	<section class="galeria">
+		<img src="{{ asset('uploads/images/' ~ oferta[0].rutaFoto) }}" alt="Fotografía de la oferta">
+		<p class="precio">
+			{{ oferta[0].precio }} &euro;
+			<span>- {{ oferta[0].descuento }} &euro; </span>
+			<span>= {{ oferta[0].precio-oferta[0].descuento }} &euro;</span>
+		</p>
+		<p>
+			<strong>Condiciones:</strong> {{ oferta[0].condiciones }}
+		</p>
+	</section>
+
+	<section class="estado">
+		<div class="tiempo">
+			<strong>Faltan</strong>: {{ oferta[0].fechaExpiracion | date() }}
+		</div>
+		<div class="compras">
+			<strong>Compras</strong>: {{ oferta[0].compras }}
+		</div>
+		<div class="faltan">
+			{# Si las compras no llegan al umbral mínimo establecido #}
+			{% set faltan = oferta[0].umbral - oferta[0].compras %}
+			{% if faltan > 0 %}
+				Faltan <strong>{{ faltan }} compras </strong><br/>
+				para activar la oferta.
+			{% else %}
+				{# Si las compras superan el umbral mínimo establecido #}
+				<strong>Oferta activada</strong> por superar las 
+				<strong>{{ oferta[0].umbral }}</strong> compras necesarias.
+			{% endif %}
+		</div>
+	</section>
+
+	<section class="direccion">
+		<h2>Disfruta de la oferta en:</h2>
+		<p>
+			<a href="#">{{ oferta[0].tienda.nombre }}</a>
+			{{ oferta[0].tienda.direccion }}
+		</p>
+	</section>
+
+	<section class="tienda">
+		<h2>Sobre la tienda</h2>
+		{{ oferta[0].tienda.descripcion }}
+	</section>
+
+{% endblock %}
+
+{% block aside %}
+	## FORMULARIO DE LOGIN ##
+	<section id="nosotros">
+		<h2>Sobre nosotros</h2>
+		<p>Lorem ipsum dolor sit amet...</p>
+	</section>
+{% endblock %}
+
+
+

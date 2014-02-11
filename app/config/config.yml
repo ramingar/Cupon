@@ -64,3 +64,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Parámetros globales de la aplicación
+# Atención: la ciudad por defecto (Madrid) cambiará cada vez que se carguen los fixtures
+#           de la base de datos. Sea como sea, hay que cambiar a mano el valor del
+#           parámetro cupon.ciudad_por_defecto para que coincida con el id de Madrid
+#           de la tabla Ciudad de la BBDD Cupon cada vez que se carguen los fixtures.
+parameters:
+    cupon.ciudad_por_defecto: "valencia"
