@@ -18,7 +18,17 @@ pagina_estatica:
     path:     /sitio/{pagina}
     defaults: { _controller: OfertaBundle:Sitio:estatica }
 
-#añadido para redirigir en caso de que se añada una "/" al final
+# Añadido para redirigir en caso de que se añada una "/" al final
 _pagin_estatica:
     path:     /sitio/{pagina}/
     defaults: { _controller: FrameworkBundle:Redirect:redirect, route: pagina_estatica, permanent: true }
+
+# Ruta completa de la portada (con el slug de la ciudad).
+portada:
+    path:     /{ciudad}
+    defaults: { _controller: OfertaBundle:Default:portada }
+
+# Ruta simple de la portada (la que utilizarán los usuarios).
+_portada:
+    path:     /
+    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: portada, ciudad: "%cupon.ciudad_por_defecto%", permanent: true }
