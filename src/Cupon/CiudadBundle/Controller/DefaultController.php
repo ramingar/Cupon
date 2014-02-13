@@ -26,7 +26,8 @@ class DefaultController extends Controller
     public function listaCiudadesAction($ciudad)
     {
         $em = $this->getDoctrine()->getManager();
-        $ciudades = $em->getRepository('CiudadBundle:Ciudad')->findAll();
+        //$ciudades = $em->getRepository('CiudadBundle:Ciudad')->findAll();
+        $ciudades = $em->getRepository('CiudadBundle:Ciudad')->findTodosAlfabetico();
 
         return $this->render(
             'CiudadBundle:Default:listaCiudades.html.twig', 
