@@ -8,7 +8,7 @@ use Cupon\OfertaBundle\Util\Util;
 // nombre de la clase -que es Ciudad-. Simplemente, lo he añadido para ver cómo podría
 // haber cambiado de forma fácil el nombre de la tabla que creará Doctrine2.
 /**
-* @ORM\Entity
+* @ORM\Entity(repositoryClass="Cupon\CiudadBundle\Entity\CiudadRepository")
 * @ORM\Table(name="Ciudad")
 */
 class Ciudad
