@@ -28,3 +28,4 @@ web/js/*
 nbproject
 .idea
 .tm_propertiesTextMate2
+.buildpath
