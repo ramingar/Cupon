@@ -4,7 +4,7 @@
 			{{ oferta[0].nombre }}
 		</a>
 	</h1>
-	{{ oferta[0].descripcion }}
+	{{ oferta[0].descripcion | mostrar_como_lista }}
 	<a href="#" class="boton">Comprar</a>
 </section>
 
@@ -12,8 +12,7 @@
 	<img src="{{ asset('uploads/images/' ~ oferta[0].rutaFoto) }}" alt="Fotografía de la oferta">
 	<p class="precio">
 		{{ oferta[0].precio }} &euro;
-		<span>- {{ oferta[0].descuento }} &euro; </span>
-		<span>= {{ oferta[0].precio-oferta[0].descuento }} &euro;</span>
+		<span>{{ descuento(oferta[0].precio, oferta[0].descuento) }}</span>
 	</p>
 	<p>
 		<strong>Condiciones:</strong> {{ oferta[0].condiciones }}
@@ -51,5 +50,5 @@
 
 <section class="tienda">
 	<h2>Sobre la tienda</h2>
-	{{ oferta[0].tienda.descripcion }}
+	{{ oferta[0].tienda.descripcion | wordwrap(40) | nl2br }}
 </section>
