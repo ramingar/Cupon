@@ -20,8 +20,8 @@
 </section>
 
 <section class="estado">
-	<div class="tiempo">
-		<strong>Faltan</strong>: {{ oferta[0].fechaExpiracion | date() }}
+	<div id="tiempo" class="tiempo">
+		<strong>Faltan</strong>: {{ oferta[0].fechaExpiracion | cuenta_atras }}
 	</div>
 	<div class="compras">
 		<strong>Compras</strong>: {{ oferta[0].compras }}
