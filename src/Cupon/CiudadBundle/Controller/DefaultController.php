@@ -34,4 +34,25 @@ class DefaultController extends Controller
             array('ciudades' => $ciudades, 'ciudadActual' => $ciudad)
         );
     }
+    
+    /**
+     * Devuelve las cinco ofertas más recientes de la ciudad y un listado con las 
+     * cinco ciudades más cercanas a la ciudad activa.
+     * @param string El slug de la ciudad para la que se quiere la información.
+     */
+    public function recientesAction($ciudad)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ciudad    = $em->getRepository('CiudadBundle:Ciudad')->findOneBySlug($ciudad);
+        $cercanas  = $em->getRepository('CiudadBundle:Ciudad')->findCercanas ($ciudad->getId(), 5);
+        $recientes = $em->getRepository('OfertaBundle:Oferta')->findRecientes($ciudad->getId(), 5);
+        
+        return $this->render('CiudadBundle:Default:recientes.html.twig',
+            array(
+                'ciudad'    => $ciudad,
+                'cercanas'  => $cercanas,
+                'ofertas' => $recientes
+            )
+        );
+    }
 }

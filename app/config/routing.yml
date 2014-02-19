@@ -16,24 +16,29 @@ oferta:
 
 pagina_estatica:
     path:     /sitio/{pagina}
-    defaults: { _controller: OfertaBundle:Sitio:estatica }
+    defaults: { _controller: "OfertaBundle:Sitio:estatica" }
 
 # Añadido para redirigir en caso de que se añada una "/" al final
 _pagin_estatica:
     path:     /sitio/{pagina}/
-    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: pagina_estatica, permanent: true }
+    defaults: { _controller: "FrameworkBundle:Redirect:redirect", route: pagina_estatica, permanent: true }
 
 # Ruta completa de la portada (con el slug de la ciudad).
 portada:
     path:     /{ciudad}
-    defaults: { _controller: OfertaBundle:Default:portada }
+    defaults: { _controller: "OfertaBundle:Default:portada" }
 
 # Ruta simple de la portada (la que utilizarán los usuarios).
 _portada:
     path:     /
-    defaults: { _controller: FrameworkBundle:Redirect:redirect, route: portada, ciudad: "%cupon.ciudad_por_defecto%", permanent: true }
+    defaults: { _controller: "FrameworkBundle:Redirect:redirect", route: portada, ciudad: "%cupon.ciudad_por_defecto%", permanent: true }
 
 # Página de detalle de una oferta
 oferta:
     path:     /{ciudad}/ofertas/{slug}
-    defaults: { _controller: OfertaBundle:Default:oferta }
+    defaults: { _controller: "OfertaBundle:Default:oferta" }
+
+# Ofertas recientes de una ciudad
+ciudad_recientes:
+    path:     /{ciudad}/recientes
+    defaults: { _controller: "CiudadBundle:Default:recientes" }
