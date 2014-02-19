@@ -96,4 +96,27 @@ class OfertaRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+    
+    /**
+     * Devuelve las ofertas más recientes de la ciudad.
+     * @param int $ciudad_id El id de la ciudad para la que se quiere las ofertas.
+     * @param int $cuantas El número de ofertas que se quiere recibir.
+     */
+    public function findRecientes($ciudad_id, $cuantas)
+    {
+    	$em = $this->getEntityManager();
+    	$qb = $em->createQueryBuilder();
+    	$qb->select(array('o', 't'))
+    	   ->from('OfertaBundle:Oferta', 'o')
+    	   ->join('o.tienda', 't')
+    	   ->where('o.ciudad = :ciudad_id')
+    	   ->andwhere('o.revisada = true')
+    	   ->andwhere('o.fechaPublicacion < :fecha')
+    	   ->orderBy('o.fechaPublicacion', 'DESC')
+    	   ->setParameter('ciudad_id', $ciudad_id)
+    	   ->setParameter('fecha', new \DateTime('today'))
+    	   ->setMaxResults($cuantas);
+    	
+    	return $qb->getQuery()->getResult();
+    }
 }

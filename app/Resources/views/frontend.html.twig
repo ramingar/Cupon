@@ -17,7 +17,7 @@
 		<nav>
 			<ul>
 				<li><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">Oferta del día</a></li>
-				<li><a href="#">Ofertas recientes</a></li>
+				<li><a href="{{ path('ciudad_recientes', {'ciudad': ciudadSeleccionada}) }}">Ofertas recientes</a></li>
 				<li><a href="#">Mis ofertas</a></li>
 				<li>{{ render(controller('CiudadBundle:Default:listaCiudades', {'ciudad': ciudadSeleccionada})) }}</li>
 			</ul>
