@@ -42,3 +42,8 @@ oferta:
 ciudad_recientes:
     path:     /{ciudad}/recientes
     defaults: { _controller: "CiudadBundle:Default:recientes" }
+
+# Página de la tienda
+tienda_portada:
+    path:     /{ciudad}/tienda/{tienda}
+    defaults: { _controller: "TiendaBundle:Default:portada" }

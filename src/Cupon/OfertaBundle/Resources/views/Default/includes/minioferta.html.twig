@@ -23,6 +23,11 @@
 			{{ oferta.precio }} &euro;
 			<span>{{ descuento(oferta.precio, oferta.descuento) }}</span>
 		</p>
-		<p>Disfruta de la oferta en: <a href="#">{{ oferta.tienda.nombre }}</a></p>
+		<p>
+			Disfruta de la oferta en: 
+			<a href="{{ path('tienda_portada', {'ciudad': oferta.ciudad.slug, 'tienda': oferta.tienda.slug}) }}">
+				{{ oferta.tienda.nombre }}
+			</a>
+		</p>
 	</div>
 </section>
