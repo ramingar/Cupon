@@ -11,7 +11,7 @@
 	<header>
 		{%
 			set ciudadSeleccionada = app.request.attributes.has('ciudad') ? 
-				app.request.attributes.get('ciudad') : cupon.ciudad_por_defecto
+				app.request.attributes.get('ciudad') : ciudad_por_defecto
 		%}
 		<h1><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">CUPON</a></h1>
 		<nav>
@@ -27,7 +27,9 @@
 		{% block article %}{% endblock %}
 	</article>
 	<aside>
-		## FORMULARIO DE LOGIN ##
+		<section id="login">
+			{{ render(controller('UsuarioBundle:Default:cajaLogin')) }}
+		</section>
 		<section id="nosotros">
 			<h2>Sobre nosotros</h2>
 			<p>Lorem ipsum dolor sit amet...</p>
