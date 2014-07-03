@@ -1,3 +1,5 @@
+{% set expirada = oferta.fechaExpiracion|date('YmdHis') < 'now'|date('YmdHis') %}
+{% set comprada = comprada | default(false) %}
 <section class="oferta_mini">
 	<div class="descripcion">
 		<h1>
@@ -6,19 +8,38 @@
 			</a>
 		</h1>
 		{{ oferta.descripcion | mostrar_como_lista }}
-		<div class="estado">
+		<div class="estado{{ expirada ? 'expirada' : ''}}{{ comprada ? 'comprada':''}}">
+			{% if comprada %}
+				Comprada el {{ fechaCompra | date('d/m/Y') }}
+			{% elseif not expirada %}
+				<div id="tiempo"><strong>Faltan</strong>: {{ oferta.fechaExpiracion | cuenta_atras }}</div>
+				{% if not expirada and not comprada %}
+					<a href="#" class="boton">Comprar</a>
+				{% endif %}
+			{% else %}
+				Finalizada el {{ oferta.fechaExpiracion | date('d/m/Y') }}
+			{% endif %}
+
+			{# 
+				Eliminado después de añadir la variable 'expirada' y 'comprada' debido a la 
+				reutiización de la plantilla en la página de ofertas recientes y en la
+				página de listado de ofertas compradas del usuario.
+			#}
+			{#
 			{% set ahora =  ('now' | date()) %}
 			{% if (oferta.fechaExpiracion | date) > (ahora | date) %}
+			{% if not expirada %}
 				<div id="tiempo"><strong>Faltan</strong>: {{ oferta.fechaExpiracion | cuenta_atras }}</div>
 				<a href="#" class="boton">Comprar</a>
 			{% else %}
 				<strong>Oferta expirada el</strong>: {{ oferta.fechaExpiracion | date() }}
 			{% endif %}
+			#}
 		</div>
 	</div>
 
 	<div class="galeria">
-		<img src="{{ asset('uploads/images/' ~ oferta.rutaFoto) }}" alt="Fotografía de la oferta">
+		<img src="{{ asset(directorio_imagenes ~ oferta.rutaFoto) }}" alt="Fotografía de la oferta">
 		<p class="precio">
 			{{ oferta.precio }} &euro;
 			<span>{{ descuento(oferta.precio, oferta.descuento) }}</span>

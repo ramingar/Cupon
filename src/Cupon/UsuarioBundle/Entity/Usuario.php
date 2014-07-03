@@ -2,15 +2,16 @@
 
 namespace Cupon\UsuarioBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Usuario
  *
  * @ORM\Table()
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Cupon\UsuarioBundle\Entity\UsuarioRepository")
  */
-class Usuario
+class Usuario implements UserInterface
 {
     /**
      * @var integer
@@ -404,5 +405,27 @@ class Usuario
     public function __toString()
     {
         return $this->getNombre() . ' ' . $this->getApellidos();
+    }
+
+
+    /* ------------------------------------------------------------- */
+    /*    MÉTODOS OBLIGATORIOS POR IMPLEMENTAR UserInterface         */
+    /*                                                               */
+    /*    Ojo! getPassword y getSalt ya están definidos en los       */
+    /*    getters de sus respectivas propiedades.                    */
+    /* ------------------------------------------------------------- */
+
+    public function eraseCredentials()
+    {
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USUARIO');
+    }
+
+    public function getUsername()
+    {
+        return $this->getEmail();
     }
 }
