@@ -137,6 +137,7 @@ class Oferta
     {
         $this->nombre = $nombre;
         $this->slug = Util::getSlug($nombre);
+
     
         return $this;
     }

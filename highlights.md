@@ -164,4 +164,21 @@ twig:
  - Seguridad - Remember me
  - Seguridad - Redirige a una página después del login
  - Inyección de dependencias
- - 
+
+### Anexo: Inyección de dependencias
+ - [Inciso]: guardar mensajes en un archivo, bbdd o enviarlos por mail.
+ - Constructor injection.
+ - Setter injection.
+ - Property injection.
+ - Contenedor de inyección de dependencias.
+ - Crear un servicio a partir de una clase PHP:
+
+```yaml
+# app/config/config.yml
+services:
+    cupon.utilidades:
+        class: Cupon\OfertaBundle\Util\Util
+```
+ - Parámetros del contenedor de Symfony2 más usados (kernel.environment, kernel.logs_dir, etc.).
+ - Inyectar un servicio en otro (arguments y uso de @).
+ - Servicios de Symfony2 más usados (request, doctrine, logger, mailer, etc.).
