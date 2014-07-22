@@ -1,5 +1,5 @@
-# Activar extensiones de Twig Text y Debug
 services:
+    # Activar extensiones de Twig Text y Debug
     twig.extension.text:
         class:    Twig_Extensions_Extension_Text
         tags:
