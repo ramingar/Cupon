@@ -1,8 +1,0 @@
-parameters:
-    cupon.codificacion:  'utf-8'
-
-# Servicios para el contenedor de inyección de dependencias
-services:
-    cupon.utilidades:
-        class:      Cupon\OfertaBundle\Util\Util
-        arguments:  [%cupon.codificacion%]

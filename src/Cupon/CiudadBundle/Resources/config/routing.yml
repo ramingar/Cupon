@@ -1,3 +1,0 @@
-ciudad_cambiar:
-    path:        /ciudad/cambiar-a-{ciudad}
-    defaults:    { _controller: CiudadBundle:Default:cambiar }
