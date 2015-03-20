@@ -4,6 +4,7 @@
 
 ### Capítulo 1
  - Para estar informado sobre Symfony
+ - Según el libro de Javier Eguiluz, solo van a usarse las anotaciones para configurar la validación de la información, así que tendría que investigar también cómo usarlas para el enrutamiento o para la seguridad.
  - Git - comandos básicos
  - Git - .gitignore
 
