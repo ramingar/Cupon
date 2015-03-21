@@ -10,6 +10,7 @@
 
 ### Capítulo 2
  - Organización/estructura de los Bundles
+ - Orden recomendado para aplicar la filosofía Symfony: entidades > bundles > enrutamiento.
  - Según el libro, el coste de un artículo se carga directamente en la tarjeta del comprador. Tengo que mirar por mi cuenta cómo funcionan las pasarelas de pago.
 
 ### Capítulo 3
