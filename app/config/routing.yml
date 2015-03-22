@@ -14,3 +14,6 @@ oferta:
     resource: "@OfertaBundle/Resources/config/routing.yml"
     prefix:   /
 
+pagina_ayuda:
+    path:     /ayuda
+    defaults: { _controller: OfertaBundle:Default:ayuda }
