@@ -17,6 +17,7 @@
 (como requisito, evidentemente, tendrás que haber instalado LAMP)
  - Instalación de Composer
  - Creación de un proyecto Symfony
+ - Comprobar que Symfony se puede usar con la configuración de tu pc `php app/check.php` (tiene que estar todo OK, incluso los opcionales)
  - Actualizar tu proyecto a la última versión de Symfony
  - Generar un Bundle (instrucción `generate:bundle` (error autoload -> hacerlo todo desde una instrucción como más abajo se explica))
  - NOTA: si lo que quieres es clonar un proyecto symfony desde github, primero tendrás que hacer el `git clone` y, dentro de la carpeta que se habrá generado con el proyecto, hacer `composer update` (no install!!).
