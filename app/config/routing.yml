@@ -14,6 +14,17 @@ oferta:
     resource: "@OfertaBundle/Resources/config/routing.yml"
     prefix:   /
 
+# Añadiendo una barra al final se evita el problema de trailing slash, Symfony hará una
+# una redirección usando la respuesta 301 (Moved permanently)
 pagina_estatica:
-    path:     /sitio/{pagina}
+    path:     /sitio/{pagina}/
     defaults: { _controller: OfertaBundle:Sitio:estatica }
+ 
+# La otra opción para solucionar el trailing slash es esta (que funciona exactamente igual):
+#pagina_estatica:
+#    path:  /sitio/{pagina}
+#    defaults: { _controller: OfertaBundle:Sitio:estatica }
+#_pagina_estatica:
+#    path:  /sitio/{pagina}/
+#    defaults: { _controller: FrameworkBundle:Redirect:redirect,
+#                      route: pagina_estatica, permanent: true }
