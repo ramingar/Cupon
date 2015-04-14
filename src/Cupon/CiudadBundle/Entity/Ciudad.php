@@ -28,6 +28,7 @@ class Ciudad
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
+        return $this;
     }
     
     public function getNombre()
@@ -38,6 +39,7 @@ class Ciudad
     public function setSlug($slug)
     {
         $this->slug = $slug;
+        return $this;
     }
     
     public function getSlug()
