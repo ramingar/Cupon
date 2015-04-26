@@ -107,7 +107,7 @@ class Basico implements FixtureInterface, ContainerAwareInterface
                     ."Nostrud exercitation ullamco laboris nisi ut"
                 );
                 $oferta->setCondiciones("Labore et dolore magna aliqua. Ut enim ad minim veniam.");
-                $oferta->setFoto('foto'.rand(1,20).'.jpg');
+                $oferta->setRutaFoto('foto'.rand(1,20).'.jpg');
                 $oferta->setPrecio(number_format(rand(100, 10000)/100, 2));
                 $oferta->setDescuento($oferta->getPrecio() * (rand(10, 70)/100));
                 
