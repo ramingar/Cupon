@@ -1,1 +1,87 @@
-{{ oferta.descripcion }}
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Portada | Cupon</title>    
+</head>
+ 
+<body id="portada"><div id="contenedor">
+    <header>
+        <h1><a href="#">CUPON</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#">Oferta del día</a></li>
+                <li><a href="#">Ofertas recientes</a></li>
+                <li><a href="#">Mis ofertas</a></li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <article class="oferta">
+        <section class="descripcion">
+            <h1><a href="#"> ## NOMBRE DE LA OFERTA ## </a></h1>
+             ## DESCRIPCIÓN DE LA OFERTA ## 
+            <a class="boton" href="#">Comprar</a>
+        </section>
+ 
+        <section class="galeria">
+            <img alt="Fotografía de la oferta" src="#">
+            <p class="precio">## PRECIO ## &euro;
+               <span>## DESCUENTO ##</span></p>
+            <p><strong>Condiciones:</strong> ## CONDICIONES ##</p>
+        </section>
+ 
+        <section class="estado">
+            <div class="tiempo">
+                <strong>Faltan</strong>: ## FECHA DE EXPIRACIÓN ##
+            </div>
+ 
+            <div class="compras">
+                <strong>Compras</strong>: ## COMPRAS TOTALES ##
+            </div>
+ 
+            <div class="faltan">
+                {# Si las compras no llegan al umbral mínimo establecido #}
+                Faltan <strong>## NN ## compras</strong> <br/>
+                para activar la oferta
+ 
+                {# Si las compras superan el umbral mínimo establecido #}
+                <strong>Oferta activada</strong> por superar las
+                <strong>## NN ##</strong> compras necesarias
+            </div>
+        </section>
+ 
+        <section class="direccion">
+            <h2>Disfruta de la oferta en</h2>
+            <p>
+                <a href="#">## NOMBRE DE LA TIENDA ##</a>
+                ## DIRECCION DE LA TIENDA ##
+            </p>
+        </section>
+ 
+        <section class="tienda">
+            <h2>Sobre la tienda</h2>
+            ## DESCRIPCION DE LA TIENDA ##
+        </section>
+    </article>
+ 
+    <aside>
+        ## FORMULARIO DE LOGIN ##
+ 
+        <section id="nosotros">
+            <h2>Sobre nosotros</h2>
+            <p>Lorem ipsum dolor sit amet...</p>
+        </section>
+    </aside>
+ 
+    <footer>
+        &copy; 201X - Cupon
+        <a href="#">Ayuda</a>
+        <a href="#">Contacto</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Sobre nosotros</a>
+    </footer>
+</div></body>
+ 
+</html>
