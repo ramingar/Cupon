@@ -31,6 +31,12 @@ class DefaultController extends Controller
             'fechaPublicacion' => new \DateTime('today - 1 sec')
         ));
         
+        if (!$oferta) {
+            throw $this->createNotFoundException(
+                'No se ha encontrado la oferta del día en la ciudad seleccionada'
+            );
+        }
+        
         return $this->render(
             'OfertaBundle:Default:portada.html.twig',
             array('oferta'=>$oferta)
