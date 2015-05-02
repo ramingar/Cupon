@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>{% block title %}{% endblock %} | Cupon</title>
+</head>
+ 
+<body id="{% block id '' %}">
+    <div id="contenedor">
+        <header>
+            {# ... #}
+        </header>
+     
+        <article>
+            {% block article %}{% endblock %}
+        </article>
+     
+        <aside>
+            {% block aside %}{% endblock %}
+        </aside>
+     
+        <footer>
+            {# ... #}
+        </footer>
+    </div>
+</body>
+ 
+</html>
