@@ -26,10 +26,7 @@ class DefaultController extends Controller
         */
         
         $em = $this->getDoctrine()->getManager();
-        $oferta = $em->getRepository('OfertaBundle:Oferta')->findOneBy(array(
-            'ciudad' => $ciudad,
-            'fechaPublicacion' => new \DateTime('today - 1 sec')
-        ));
+        $oferta = $em->getRepository('OfertaBundle:Oferta')->findOfertaDelDia($ciudad);
         
         if (!$oferta) {
             throw $this->createNotFoundException(
