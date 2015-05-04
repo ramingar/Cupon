@@ -4,43 +4,28 @@
        : cupon.ciudad_por_defecto
 %}
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>{% block title %}{% endblock %} | Cupon</title>
-</head>
+{% extends '::base.html.twig' %}
  
-<body id="{% block id '' %}">
-    <div id="contenedor">
-        <header>
-            <h1><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">CUPON</a></h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">Oferta del día</a></li>
-                    <li><a href="#">Ofertas recientes</a></li>
-                    <li><a href="#">Mis ofertas</a></li>
-                </ul>
-            </nav>
-        </header>
-     
-        <article>
-            {% block article %}{% endblock %}
-        </article>
-     
-        <aside>
-            {% block aside %}{% endblock %}
-        </aside>
-     
-        <footer>
-            &copy; {{ 'now' | date('Y') }} - Cupon
-            <a href="{{ path('pagina_estatica', {'pagina':'ayuda'}) }}">Ayuda</a>
-            <a href="{{ path('pagina_estatica', {'pagina':'contacto'}) }}">Contacto</a>
-            <a href="{{ path('pagina_estatica', {'pagina':'privacidad'}) }}">Privacidad</a>
-            <a href="{{ path('pagina_estatica', {'pagina':'acerca'}) }}">Sobre nosotros</a>
-        </footer>
-    </div>
-</body>
+{% block stylesheets %}{% endblock %}
+{% block javascripts %}{% endblock %}
  
-</html>
+{% block body %}
+    <header>
+        <h1><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">CUPON</a></h1>
+        <nav>
+            <ul>
+                <li><a href="{{ path('portada', {'ciudad': ciudadSeleccionada}) }}">Oferta del día</a></li>
+                <li><a href="#">Ofertas recientes</a></li>
+                <li><a href="#">Mis ofertas</a></li>
+            </ul>
+        </nav>
+    </header>
+     
+    <article>
+        {% block article %}{% endblock %}
+    </article>
+     
+    <aside>
+        {% block aside %}{% endblock %}
+    </aside>
+{% endblock %}
