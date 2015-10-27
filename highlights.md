@@ -160,7 +160,7 @@ twig:
 ```
  - TWIG - `{% include %}` -> incluir una plantilla TWIG en ese lugar: `{% include 'OfertaBundle:Default:includes/oferta.html.twig' %}`
  - TWIG - extensiones opcionales de twig: TEXT y DEBUG. TEXT -> truncate y wordwrap. DEBUG -> dump.
- - CREACIÓN DE EXTENSIONES DE TWIG
+ - CREACIÓN DE EXTENSIONES DE TWIG - EOJ en Symfony
  - Resumen creación de una página: ruta, acción, repositorio y plantilla.
 
 ### Capítulo 8
